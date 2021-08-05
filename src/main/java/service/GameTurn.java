@@ -2,20 +2,21 @@ package service;
 
 import InOut.Inputs;
 
-public class GameTurn implements Inputs{
+public class GameTurn{
 
     private int turns;
+    private static Inputs inputs;
 
-    public GameTurn(){
-        this.turns = inputOfGameTurns();
+    public GameTurn(int turns){
+        this.turns = turns;
     }
 
-//    public static GameTurn makeUserInputs(){
-//        int turns = makeUserInputs().inputOfGameTurns();
-//        return new GameTurn(turns);
-//    }
+    public static GameTurn makeGameInputs(){
+        int turns = inputs.inputOfGameTurns();
+        return new GameTurn(turns);
+    }
 
-    public int showPlayTime(){
+    public int showTurn(){
         return turns;
     }
 

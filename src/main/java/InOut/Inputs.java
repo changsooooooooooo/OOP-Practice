@@ -6,7 +6,7 @@ public interface Inputs{
 
     Scanner sc = new Scanner(System.in);
 
-    default String inputOfCarNames(){
+    default String inputOfCandidateNames(){
         return sc.nextLine();
     }
 
