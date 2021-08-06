@@ -10,8 +10,8 @@ public class ResultObj {
         this.candidatePos = resultUnderBar(candidatePos);
     }
 
-    public String resultUnderBar(int candidatePos) {
-        return "_".repeat(Math.max(0, candidatePos));
+    private String resultUnderBar(int candidatePos) {
+        return "_".repeat(candidatePos);
     }
 
     public String showCandidateName(){

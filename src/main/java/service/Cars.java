@@ -1,10 +1,10 @@
 package service;
 
+import InOut.InputImpl;
 import InOut.Inputs;
 import domain.Car;
 import domain.ResultObj;
 
-import javax.xml.transform.Result;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 
 public class Cars{
 
-    private static Inputs inputs;
+    private static final Inputs inputs = new InputImpl();
     private final List<Car> carList;
 
     private Cars(List<Car> carList){
@@ -20,8 +20,8 @@ public class Cars{
     }
 
     public static Cars makeCars(){
-        List<Car> carList = Stream.of(inputs.inputOfCandidateNames())
-                .map(name->Car.makeCar(name))
+        List<Car> carList = Stream.of(inputs.inputOfCandidateNames().split(","))
+                .map(Car::makeCar)
                 .collect(Collectors.toList());
 
         return new Cars(carList);
@@ -38,9 +38,9 @@ public class Cars{
                 .collect(Collectors.toList());
     }
 
-    public Integer topRankPos(){
+    private Integer topRankPos(){
         return carList.stream()
-                .map(car->car.carPos())
+                .map(Car::carPos)
                 .max(Comparator.comparingInt(pos->pos)).orElse(-1);
     }
 

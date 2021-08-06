@@ -1,11 +1,12 @@
 package service;
 
+import InOut.InputImpl;
 import InOut.Inputs;
 
 public class GameTurn{
 
     private int turns;
-    private static Inputs inputs;
+    private static final Inputs inputs = new InputImpl();
 
     public GameTurn(int turns){
         this.turns = turns;
@@ -16,8 +17,8 @@ public class GameTurn{
         return new GameTurn(turns);
     }
 
-    public boolean remainTurn(){
+    public int remainTurn(){
         turns -= 1;
-        return turns<0;
+        return turns;
     }
 }
