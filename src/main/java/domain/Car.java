@@ -10,7 +10,6 @@ public class Car {
         if(name.equals("Error")){
             throw new NameLengthException("Name Length Must be under Five");
         }
-
         this.name = name;
     }
 
@@ -21,15 +20,17 @@ public class Car {
         return new Car(name);
     }
 
-    public int movePos(int diceNumber){
+    public void movePos(int diceNumber){
         if(3<diceNumber){
             position += 1;
-            return position;
         }
-        return position;
     }
 
     public String carName(){
         return name;
+    }
+
+    public int carPos(){
+        return position;
     }
 }

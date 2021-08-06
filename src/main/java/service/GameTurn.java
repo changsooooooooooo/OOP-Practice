@@ -16,12 +16,8 @@ public class GameTurn{
         return new GameTurn(turns);
     }
 
-    public int showTurn(){
-        return turns;
-    }
-
-    public int remainTurn(){
+    public boolean remainTurn(){
         turns -= 1;
-        return turns;
+        return turns<0;
     }
 }
