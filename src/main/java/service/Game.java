@@ -39,10 +39,14 @@ public class Game {
     }
 
     public List<ResultObj> doGame(int turn){
-        return giveDiceNumbers();
+        List<ResultObj> result = new ArrayList<>();
+        result = giveDiceNumbers();
+        return result;
     }
 
     public List<ResultObj> getResult(){
-        return cars.topRankCars();
+        List<ResultObj> result = new ArrayList<>();
+        result = cars.topRankCars();
+        return result;
     }
 }
